@@ -1,0 +1,18 @@
+#! /bin/bash
+
+#curr_date=$(date +%Y%m%d)
+cd /export/saasprodsftp/bk/prod/MT940
+#echo $curr_date
+
+for folder in *;
+do
+     cd /export/saasprodsftp/bk/prod/MT940/"$folder"/inbound/
+     echo "Current Path: $(pwd)"
+     for file in  $(find /export/saasprodsftp/bk/prod/MT940/"$folder"/inbound -mtime -1 -type f);
+        do
+            cp $file /mnt/treasury-share/Bank_Statements_MT940_inbound/"$folder"
+            #cp *$curr_date*.txt /mnt/treasury-share/Bank_Statements_MT940_inbound/"$folder"
+            echo "$file  Pushed to /mnt/treasury-share/Bank_Statements_MT940_inbound/$folder"
+        done
+   cd /export/saasprodsftp/bk/prod/MT940
+done
