@@ -1,0 +1,29 @@
+lsblk
+  126  fdisk /dev/sda
+  127  vgs
+  128  vgextend rhel /dev/sda4
+  129  vgs
+  130  lvs
+  131  lvextend /dev/mapper/rhel-root -l+100%FREE
+  132  lvs
+  133  df -hT
+  134  xfs_growfs /dev/mapper/rhel-root
+  135  df -hT
+  136  route
+  137  ping bkash.com
+  138  yum list rsync
+  139  passwd root
+  140  id pclooud
+  141  id pcloud
+  142  exit
+  143  lsblk
+  144  df -hjT
+  145  df -hT
+  146  free -m
+  147  nproc
+  148  auditctl -l
+  149  umane -a
+  150  uname -a
+  151  rpm -qa | grep kernel
+  152  cat /etc/resolv.conf
+  153  exit
